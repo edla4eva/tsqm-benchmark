@@ -1,0 +1,6 @@
+
+file,cloc,eloc,lloc,loc,ncloc
+
+method,ccn,ccn2,cloc,eloc,lloc,loc,ncloc,npath
+
+function,ccn,ccn2,cloc,eloc,lloc,loc,ncloc,npath
