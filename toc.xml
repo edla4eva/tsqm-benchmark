@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="TSQM Benchmark Table of Contents">
+	<topic label="Main Topic"  href="html/maintopic.html"> 
+		<topic label="About TSQM Benchmark" href="html/subtopic.html"/> 
+	</topic>
+	<topic href="html/maintopic.html" label="Main Topic 2">
+    <topic href="html/subtopic.html" label="Topic">
+    </topic>
+ </topic>
+</toc>
