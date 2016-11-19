@@ -1,5 +1,5 @@
 
-method,ccn,ccn2,cloc,eloc,lloc,loc,ncloc,npath
+method,ccn,ccn2,cloc,eloc,lloc,loc,ncloc,npath,
 ftp_base,1.0,1.0,0.0,3.0,1.0,3.0,3.0,1.0,  
 __construct,4.0,4.0,0.0,31.0,31.0,31.0,31.0,15.0,  
 parselisting,11.0,13.0,2.0,59.0,53.0,61.0,59.0,41.0,  
