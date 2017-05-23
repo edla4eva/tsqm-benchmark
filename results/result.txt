@@ -1,0 +1,3 @@
+The results in this directory are in two categories:
+1. Metric results for all the Web-based systems in CSV format
+2. Database of benchmark result
