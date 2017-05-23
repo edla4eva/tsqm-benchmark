@@ -85,23 +85,23 @@
             id="com.tsqm.plugin.navigator">
       </view>
       <view
-            name="TSQM Benchmark View"
+            name="TSQM Benchmark Main View"
             icon="icons/sample.gif"
             category="com.tsqm.plugin"
-            class="com.tsqm.plugin.views.TSQMView"
-            id="com.tsqm.plugin.views.TSQMView">
+            class="com.tsqm.plugin.views.TSQMMainView"
+            id="com.tsqm.plugin.views.TSQMMainView">
       </view>
       <view
             category="com.tsqm.plugin"
-            class="com.tsqm.plugin.views.TSQMViewpartSWTMetrics"
+            class="com.tsqm.plugin.views.TSQMBenchmarkViewpart"
             id="com.tsqm.plugin.views.TSQMViewpartSWT"
-            name="TSQM Metrics View">
+            name="TSQM Benchmark View">
       </view>
       <view
             category="com.tsqm.plugin"
-            class="com.tsqm.plugin.views.TSQMViewpartSWTforSCAU"
-            id="com.tsqm.plugin.views.TSQMViewpartSWTforSCAU"
-            name="TSQM Scource Code Analysis Unit">
+            class="com.tsqm.plugin.views.TSQMSCAUViewpart"
+            id="com.tsqm.plugin.views.TSQMSCAUViewpart"
+            name="TSQM Source Code Analysis Unit">
       </view>
       <view
             category="com.tsqm.plugin"
@@ -116,6 +116,13 @@
             icon="icons/sample.gif"
             id="com.tsqm.plugin.views.ListenerView"
             name="ListenerView">
+      </view>
+      <view
+            category="com.tsqm.plugin"
+            class="com.tsqm.plugin.views.TSQMMetricsView"
+            icon="icons/sample.gif"
+            id="com.tsqm.plugin.views.TSQMMetricsView"
+            name="TSQM Metrics View">
       </view>
    </extension>
    <extension
@@ -163,7 +170,7 @@
                ratio="0.5"
                relative="org.eclipse.ui.views.ProblemView"
                relationship="right"
-               id="com.tsqm.plugin.views.TSQMView">
+               id="com.tsqm.plugin.views.TSQMMainView">
          </view>
       </perspectiveExtension>
       <perspectiveExtension
@@ -179,6 +186,15 @@
             targetID="org.eclipse.jdt.ui.JavaPerspective">
          <view
                id="com.tsqm.plugin.views.SampleView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="com.tsqm.plugin.views.TSQMMetricsView"
                ratio="0.5"
                relationship="right"
                relative="org.eclipse.ui.views.ProblemView">
@@ -238,24 +254,24 @@
             id="com.tsqm.plugin.commands.category">
       </category>
       <command
-            name="TSQMCommand (MAIN)"
+            name="TSQMCommand 1 (MAIN)"
             categoryId="com.tsqm.plugin.commands.category"
             id="com.tsqm.plugin.commands.sampleCommand">
       </command>
       <command
             categoryId="com.tsqm.plugin.commands.category"
             id="com.tsqm.plugin.commands.sampleCommand2"
-            name="TSQMCommand2 (SCAU)">
+            name="TSQMCommand 2 (SCAU)">
       </command>
       <command
             categoryId="com.tsqm.plugin.commands.category"
             id="com.tsqm.plugin.commands.sampleCommand3"
-            name="TSQMCommand3 (Metrics)">
+            name="TSQMCommand 3 (Metrics)">
       </command>
       <command
             categoryId="com.tsqm.plugin.commands.category"
             id="com.tsqm.plugin.commands.sampleCommand4"
-            name="TSQMCommand3 (Other)">
+            name="TSQMCommand 4 (Other)">
       </command>
    </extension>
    <extension
@@ -304,19 +320,19 @@
                   commandId="com.tsqm.plugin.commands.sampleCommand2"
                   id="com.tsqm.plugin.menus.sampleCommand2"
                   mnemonic="S"
-                  tooltip="TSQM SCAUTooltip">
+                  tooltip="TSQM Command">
             </command>
             <command
                   commandId="com.tsqm.plugin.commands.sampleCommand3"
                   id="com.tsqm.plugin.menus.sampleCommand3"
                   mnemonic="S"
-                  tooltip="TSQM SCAUTooltip">
+                  tooltip="TSQM Command">
             </command>
             <command
                   commandId="com.tsqm.plugin.commands.sampleCommand4"
                   id="com.tsqm.plugin.menus.sampleCommand4"
                   mnemonic="S"
-                  tooltip="TSQM SCAUTooltip">
+                  tooltip="TSQM Command">
             </command>
          </menu>
       </menuContribution>
@@ -414,9 +430,17 @@
             class="com.tsqm.plugin.preferences.TSQMPreferencePage"
             id="com.tsqm.plugin.preferences.TSQMPreferencePage">
       </page>
+      <page
+            class="com.tsqm.plugin.preferences.MetricsPreferencePage"
+            id="com.tsqm.plugin.preferences.MetricsPreferencePage"
+            name="TSQM Metrics Preferences">
+      </page>
    </extension>
    <extension
          point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.tsqm.plugin.preferences.PreferenceInitializer">
+      </initializer>
       <initializer
             class="com.tsqm.plugin.preferences.PreferenceInitializer">
       </initializer>
@@ -455,6 +479,9 @@
    </extension>
    <extension
          point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
       <contexts
             file="contexts.xml">
       </contexts>
